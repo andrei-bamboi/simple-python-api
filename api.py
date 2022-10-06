@@ -35,4 +35,4 @@ app.url_map.converters['regex'] = RegexConverter
 def get_data(randNum):
     return requests.get('http://localhost:3000/').content, {'Content-Type': 'application/pdf; charset=utf-8'}
 
-app.run()
+app.run(host="0.0.0.0")
