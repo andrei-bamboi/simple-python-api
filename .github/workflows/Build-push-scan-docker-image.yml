@@ -58,8 +58,8 @@ jobs:
         id: pull_image
         run:   |
           docker login --username  ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
-          export IMAGE_ID=$(echo ${{ needs.build_push_image.outputs.pushed_tags }} | grep -v latest | awk '{print $1}' )
-          docker pull $IMAGE_ID
+          export IMAGE_VERSION=$(echo ${{ needs.build_push_image.outputs.pushed_tags }} | grep -v latest | awk '{print $1}' )
+          docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$IMAGE_VERSION
           echo "::set-output name=single_image_id::${IMAGE_ID}"
 
       - name: Run Trivy vulnerability scanner
