@@ -1,0 +1,25 @@
+api:
+  replicaCount: 1
+  image:
+    repository: abamboi/economic-api:v0.0.1
+    pullPolicy: Always
+    imagePullSecrets:
+      name: dockerhub-login
+      create: true
+      username: ''
+      password: ''
+      registryUrl: https://index.docker.io/v1/
+  nameOverride: ''
+  fullnameOverride: ''
+  service:
+    type: ClusterIP
+    port: 8080
+    targetPort: 5001
+    name: api
+  resources:
+    limits:
+      cpu: 250m
+      memory: 1050Mi
+    requests:
+      cpu: 250m
+      memory: 10508Mi

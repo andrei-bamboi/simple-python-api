@@ -2,6 +2,11 @@ from typing import Type
 import flask
 import requests
 from werkzeug.routing import BaseConverter
+import unittest
+import logging
+
+logging.basicConfig(level=logging.DEBUG, format=f'%(asctime)s %(levelname)s %(name)s %(threadName)s : %(message)s')
+ 
 
 app = flask.Flask(__name__)
 app.config["DEBUG"] = True
