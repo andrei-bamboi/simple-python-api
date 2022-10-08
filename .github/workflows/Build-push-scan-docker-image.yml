@@ -47,7 +47,7 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }} 
     outputs:
-      pushed_tags: ${{ steps.meta.outputs.tags }}
+      pushed_tags: ${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.version'] }}
 
   scan_image:
     runs-on: ubuntu-latest
