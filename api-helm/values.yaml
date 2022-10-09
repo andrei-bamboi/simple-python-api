@@ -1,7 +1,7 @@
 api:
   replicaCount: 1
   image:
-    repository: docker.io/abamboi/economic-api:main-704a79a-20221009
+    repository: docker.io/abamboi/economic-api:main-51fefb7-20221009
     pullPolicy: Always
     imagePullSecrets:
       name: dockerhub-login
