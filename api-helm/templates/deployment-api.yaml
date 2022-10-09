@@ -25,3 +25,11 @@ spec:
             - name : http
               containerPort: {{ .Values.api.service.targetPort }}
               protocol: TCP
+          livenessProbe:
+              httpGet:
+                path: /liveness
+                port: 5000
+          readinessProbe:
+              httpGet:
+                path: /readiness
+                port: 5000
