@@ -16,6 +16,7 @@ declare "action"="$1"
 case "${action}" in
   "deploy")
     terraform init
+    terrafrom tain helm_release.api
     terraform apply -auto-approve
     if [ $? -ne 0 ]; then
       echo "failed"
