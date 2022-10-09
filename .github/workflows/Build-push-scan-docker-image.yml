@@ -93,7 +93,7 @@ jobs:
         with:
           valueFile: 'api-helm/values.yaml' # Need to refactor the helm chart and remove the version subdir
           propertyPath: 'api.image.repository'
-          value: ${{ needs.scan_image.outputs.scanned_tag }}
+          value: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${{ needs.scan_image.outputs.scanned_tag }}
           branch: main
           createPR: false
           message: 'Update Image Version to ${{ needs.scan_image.outputs.scanned_tag }}'

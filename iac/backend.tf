@@ -1,5 +1,5 @@
 terraform {
   backend "local" {
-    path = "~/terraform-api-economic.tfstate"
+    path = ".tfstate/terraform-api-economic.tfstate"
   }
 }
