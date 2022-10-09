@@ -1,7 +1,7 @@
 api:
   replicaCount: 1
   image:
-    repository: main-1e589b8-20221009
+    repository: main-9cd19ec-20221009
     pullPolicy: Always
     imagePullSecrets:
       name: dockerhub-login
