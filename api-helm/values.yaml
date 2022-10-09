@@ -5,7 +5,7 @@ api:
     pullPolicy: Always
     imagePullSecrets:
       name: dockerhub-login
-      create: true
+      create: false
       username: ''
       password: ''
       registryUrl: https://index.docker.io/v1/
