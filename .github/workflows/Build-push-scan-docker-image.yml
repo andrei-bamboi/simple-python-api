@@ -59,8 +59,9 @@ jobs:
         run:   |
           docker login --username  ${{ secrets.DOCKERHUB_USERNAME }} --password ${{ secrets.DOCKERHUB_TOKEN }}
           export IMAGE_VERSION=$(echo ${{ needs.build_push_image.outputs.pushed_tags }} | grep -v latest | awk '{print $1}' )
+          export IMAGE_FULL=$(${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$IMAGE_VERSION)
           docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:$IMAGE_VERSION
-          echo "::set-output name=single_image_id::${IMAGE_ID}"
+          echo "::set-output name=single_image_id::${IMAGE_FULL}"
 
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
