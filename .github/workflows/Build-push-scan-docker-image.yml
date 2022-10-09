@@ -84,22 +84,17 @@ jobs:
       packages: write
       id-token: write
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        id: checkout_repo
       - name: Checkout Helm Target Repository
         id: checkout_helm
         uses: actions/checkout@v2
         with:
           repository: andrei-bamboi/simple-python-api
           ref: main
-          path: api-helm
-          token: ${{ secrets.HELM_REPO_TOKEN }}       
       - name: Update Image Version in the related HelmChart values.yaml
         id: update_helm_values
         uses: fjogeleit/yaml-update-action@master
         with:
-          valueFile: 'values.yaml' # Need to refactor the helm chart and remove the version subdir
+          valueFile: 'api-helm/values.yaml' # Need to refactor the helm chart and remove the version subdir
           propertyPath: 'api.image.repository'
           value: ${{ needs.scan_image.outputs.scanned_tag }}
           repository: andrei-bamboi/simple-python-api
