@@ -3,6 +3,9 @@ name: Build , push and update API in kubernetes
 on:
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - 'api-helm/**'
+
 
 env:
   # Use docker.io for Docker Hub if empty
