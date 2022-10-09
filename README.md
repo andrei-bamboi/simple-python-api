@@ -6,13 +6,13 @@ This is a simple api made with python and flask
 
 Need to have minikube and terraform installed.
 
-If you dont know how to installed them , means that this repo is not intended to you.
+If you dont know how to install them , means that this repo is not intended to you.
 
 
 ## Content
 
 ### api-helm directory
-Container the Helm chart.
+Contain the Helm chart inlcuding the dummy-pdf app deployment
 
 ### iac directory
 
