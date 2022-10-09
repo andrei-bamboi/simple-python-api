@@ -25,6 +25,20 @@ Just run the deploy-terraform-minikube.sh script with one of the following param
 - deploy
 - destroy
 
+## Accesing the service
+
+Simple approach is to run port-forward:
+
+ex. 
+```bash
+kubectl port-forward service/api 8081:8080
+```
+
+Go to localhost:8081 with one of the following endoints:
+
+- /stat - status
+-  /[0-9] - accesing pdf file from other pod
 ## Exampple
 ```bash
 deploy-terraform-minikube.sh plan
+```
