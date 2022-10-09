@@ -95,6 +95,7 @@ jobs:
           propertyPath: 'api.image.repository'
           value: ${{ needs.scan_image.outputs.scanned_tag }}
           branch: main
-          targetBranch: main
           createPR: false
           message: 'Update Image Version to ${{ needs.scan_image.outputs.scanned_tag }}'
+          token: ${{ secrets.HELM_REPO_TOKEN }}
+
