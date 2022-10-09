@@ -33,3 +33,10 @@ spec:
               httpGet:
                 path: /readiness
                 port: 5000
+        - name: dummy-pdf
+          image: "abamboi/economic-api:dummy-pdf"
+          imagePullPolicy: {{ .Values.api.image.pullPolicy }}
+          ports:
+            - name : http
+              containerPort: 3000
+              protocol: TCP

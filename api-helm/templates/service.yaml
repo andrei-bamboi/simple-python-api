@@ -11,5 +11,9 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+      name: http-dummy
   selector:
 {{- include "app.selectorLabels" $ | nindent 6 }}
