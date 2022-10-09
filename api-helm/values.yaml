@@ -1,7 +1,7 @@
 api:
   replicaCount: 1
   image:
-    repository: docker.io/abamboi/economic-api:main-aba5439-20221009
+    repository: docker.io/abamboi/economic-api:main-9674b79-20221009
     pullPolicy: Always
     imagePullSecrets:
       name: dockerhub-login
@@ -12,9 +12,9 @@ api:
   nameOverride: ''
   fullnameOverride: ''
   service:
-    type: ClusterIP
+    type: NodePort
     port: 8080
-    targetPort: 5000
+    targetPort: 5001
     name: api
   resources:
     limits:
