@@ -101,4 +101,15 @@ jobs:
           createPR: false
           message: 'Update Image Version to ${{ needs.scan_image.outputs.scanned_tag }}'
           token: ${{ secrets.HELM_REPO_TOKEN }}
+      - name: Update App Version in the related HelmChart Chart.yaml
+        id: update_helm_values
+        uses: fjogeleit/yaml-update-action@master
+        with:
+          valueFile: 'api-helm/Chart.yaml' # Need to refactor the helm chart and remove the version subdir
+          propertyPath: 'appVersion'
+          value: ${{ needs.scan_image.outputs.scanned_tag }}
+          branch: main
+          createPR: false
+          message: 'Update App Version to ${{ needs.scan_image.outputs.scanned_tag }}'
+          token: ${{ secrets.HELM_REPO_TOKEN }}
 

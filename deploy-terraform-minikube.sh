@@ -25,7 +25,6 @@ case "${action}" in
     ;;
   "destroy")
     terraform init
-
     terraform destroy -auto-approve
     if [ $? -ne 0 ]; then
       echo "failed"

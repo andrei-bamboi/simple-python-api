@@ -24,7 +24,10 @@ Just run the deploy-terraform-minikube.sh script with one of the following param
 - plan
 - deploy
 - destroy
-
+### Exampple
+```bash
+deploy-terraform-minikube.sh plan
+```
 ## Accesing the service
 
 Simple approach is to run port-forward:
@@ -38,7 +41,11 @@ Go to localhost:8081 with one of the following endoints:
 
 - /stat - status
 -  /[0-9] - accesing pdf file from other pod
-## Exampple
-```bash
-deploy-terraform-minikube.sh plan
-```
+
+## CICD 
+
+On every commit pushed to thi repo on main branch , it will start a github action workflow which will:
+- create a docker image
+- scan the docker image with Trivy
+- push image to dockerhub
+- update helm chart values.yaml file with new docker image.
