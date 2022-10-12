@@ -51,14 +51,6 @@ app.kubernetes.io/managed-by: {{ .Release.Service }}
 {{- end }}
 
 {{/*
-Selector labels for rabbitmq
-*/}}
-{{- define "rabbitmq.selectorLabels" -}}
-app.kubernetes.io/name: {{ .Values.rabbitmq.service.name }}
-{{- end }}
-
-
-{{/*
 Create secret to access docker registry
 */}}
 {{- define "imagePullSecret" }}
